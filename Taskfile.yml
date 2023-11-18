@@ -1,0 +1,33 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  init:
+    desc: init python environment
+    cmds:
+      - rm -rf .venv
+      - python3 -m venv .venv
+      - .venv/bin/python3 -m pip install -r requirements.txt
+      - source .venv/bin/activate
+  
+  start:
+    desc: start local dev
+    cmds:
+      - .venv/bin/python3 -m flask --app hello run
+  
+  save:
+    desc: save on github
+    cmds:
+      - git pull
+      - git add .
+      - git commit -m 'CAMILLE'
+      - git push
