@@ -22,7 +22,7 @@ tasks:
   start:
     desc: start local dev
     cmds:
-      - .venv/bin/python3 -m flask --app hello run
+      - .venv/bin/python3 -m gunicorn wsgi:app
   
   save:
     desc: save on github
