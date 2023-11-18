@@ -22,7 +22,7 @@ tasks:
   start:
     desc: start local dev
     cmds:
-      - .venv/bin/python3 -m gunicorn wsgi:app
+      - .venv/bin/python3 -m gunicorn wsgi:application
   
   save:
     desc: save on github
